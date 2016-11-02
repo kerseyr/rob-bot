@@ -2,7 +2,7 @@
 var restify = require('restify'); 
 var builder = require('botbuilder'); 
 
-var appId = process.env.MY_APP_ID,
+var appId = process.env.MY_APP_ID;
 var appPassword = process.env.MY_APP_PASSWORD;
 
 // Setup Restify Server
