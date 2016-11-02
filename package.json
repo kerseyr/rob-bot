@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/kerseyr/rob-bot#readme",
   "dependencies": {
-    "botbuilder": "^3.4.2",
+    "botbuilder": "^3.4.4",
     "restify": "^4.2.0"
   }
 }
