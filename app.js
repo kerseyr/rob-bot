@@ -40,14 +40,14 @@ bot.dialog('/', [
     function (session) {
         // Send a greeting and show help.
         var card = new builder.HeroCard(session)
-            .title("Microsoft Bot Framework")
-            .text("Your bots - wherever your users are talking.")
+            .title("Rob-Bot Virtual Bar Tender")
+            .text("Getting you drunk everywhere!")
             .images([
-                 builder.CardImage.create(session, "http://docs.botframework.com/images/demo_bot_image.png")
+                 builder.CardImage.create(session, "http://static.ibnlive.in.com/pix/slideshow/07-2013/meet-the-humanoid/main-1-robot-290713.jpg")
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
-        session.send("Hi... I'm the Microsoft Bot Framework demo bot for Facebook. I can show you everything you can use our Bot Builder SDK to do on Facebook.");
+        session.send("Hi... I'm Rob-Bot Here to help you find a drink!.");
         session.beginDialog('/help');
     },
     function (session, results) {
@@ -62,7 +62,7 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
+        builder.Prompts.choice(session, "What type of drink would you like?", "Beer|Wine|Spirt|(quit)");
     },
     function (session, results) {
         if (results.response && results.response.entity != '(quit)') {
