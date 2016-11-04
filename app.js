@@ -47,7 +47,7 @@ bot.dialog('/', [
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);
-        session.send("Hi... I'm Rob-Bot Here to help you find a drink!.");
+        session.send("Hi... I'm Rob-Bot Here to help you find a drink!!!");
         session.beginDialog('/help');
     },
     function (session, results) {
@@ -88,7 +88,13 @@ bot.dialog('/help', [
 
 bot.dialog('/Beer', [
     function (session) {
-        builder.Prompts.choice("Which would you prefer?", "Beer|Larger|Cider");
+        session.send("Ok, lets try and get you a drink...");
+        builder.Prompts.text(session, "Would you prefer beer, larger or a cider?");
+    },
+    function (session, results) {
+     	session.send("You entered '%s'", results.response);
+        session.send("Bot Builder includes a rich choice() prompt that lets you offer a user a list choices to pick from. On Facebook these choices by default surface using Quick Replies if there are 10 or less choices. If there are more than 10 choices a numbered list will be used but you can specify the exact type of list to show using the ListStyle property.");
+        builder.Prompts.choice(session, "Prompts.choice()\n\nChoose a list style (the default is auto.)", "auto|inline|list|button|none");
     }
 ]);
 
