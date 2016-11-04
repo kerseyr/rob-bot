@@ -100,12 +100,12 @@ bot.dialog('/Beer', [
 
 bot.dialog('/Wine', [
     function (session) {
-        builder.Prompts.choice("What type of wine?","White|Red|Rose|Sparkling");
+        builder.Prompts.choice(session, "What type of wine?","White|Red|Rose|Sparkling");
     }
 ]);
 
 bot.dialog('/Spirit', [
     function (session) {
-        builder.Prompts.choice("We got lots of spirits....","Whiskey|Gin|Vodka|Brandy|Rum");
+        builder.Prompts.choice(session, "We got lots of spirits....","Whiskey|Gin|Vodka|Brandy|Rum");
     }
 ]);
