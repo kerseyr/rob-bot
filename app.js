@@ -39,6 +39,7 @@ bot.beginDialogAction('help', '/help', { matches: /^help/i });
 bot.dialog('/', [
     function (session) {
         session.send("Hi... I'm the Rob-Bot, a virtual bar tender here to help you find a drink!!");
+        session.beginDialog('/menu');
     },
     function (session, results) {
         // Display menu
