@@ -62,9 +62,10 @@ bot.dialog('/', [
 
 bot.dialog('/menu', [
     function (session) {
-        builder.Prompts.choice(session, "What type of drink would you like?", "Beer|Wine|Spirt|(quit)");
+        builder.Prompts.choice(session, "What type of drink would you like?", "Beer|Wine|Spirit|(quit)");
     },
     function (session, results) {
+    	// if the user types nything other than quit lets send them to that menu, else bin it!
         if (results.response && results.response.entity != '(quit)') {
             // Launch demo dialog
             session.beginDialog('/' + results.response.entity);
@@ -82,5 +83,23 @@ bot.dialog('/menu', [
 bot.dialog('/help', [
     function (session) {
         session.endDialog("Global commands that are available anytime:\n\n* menu - Exits a demo and returns to the menu.\n* goodbye - End this conversation.\n* help - Displays these commands.");
+    }
+]);
+
+bot.dialog('/Beer', [
+    function (session) {
+        builder.Prompts.choice("Which would you prefer?", "Beer|Larger|Cider");
+    }
+]);
+
+bot.dialog('/Wine', [
+    function (session) {
+        builder.Prompts.choice("What type of wine?","White|Red|Rose|Sparkling");
+    }
+]);
+
+bot.dialog('/Spirit', [
+    function (session) {
+        builder.Prompts.choice("We got lots of spirits....","Whiskey|Gin|Vodka|Brandy|Rum");
     }
 ]);
